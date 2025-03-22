@@ -1,8 +1,8 @@
 {
-    "id": "org.webosbrew.bluetooth-disabler",
+    "id": "pl.krzywro.webos-bluetooth-disabler",
     "version": "1.0.0",
-    "vendor": "webosbrew.org",
-    "title": "Bluetooth Disabler",
+    "vendor": "KrzyWro",
+    "title": "webOS Bluetooth Disabler",
     "icon": "assets/icon80.png",
     "largeIcon": "assets/icon130.png",
     "main": "index.html",

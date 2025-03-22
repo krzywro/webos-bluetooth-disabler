@@ -1,5 +1,5 @@
 {
-    "name": "org.webosbrew.bluetooth-disabler",
+    "name": "pl.krzywro.webos-bluetooth-disabler",
     "version": "1.0.0",
     "main": "frontend/index.js",
     "moduleDir": "frontend",

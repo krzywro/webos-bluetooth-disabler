@@ -1,4 +1,4 @@
-bluetooth-disabler
+webos-bluetooth-disabler
 ==================
 
 Requires Homebrew Channel and root.
