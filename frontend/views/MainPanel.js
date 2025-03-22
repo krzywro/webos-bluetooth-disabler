@@ -9,7 +9,7 @@ var
   Item = require('moonstone/Item'),
 	ToggleItem = require('moonstone/ToggleItem');
 
-var scriptPath = "/media/developer/apps/usr/palm/applications/org.webosbrew.bluetooth-disabler/assets/disable-bluetooth.sh";
+var scriptPath = "/media/developer/apps/usr/palm/applications/pl.krzywro.webos-bluetooth-disabler/assets/disable-bluetooth.sh";
 var linkPath = "/var/lib/webosbrew/init.d/99-bluetooth-disabler";
 
 module.exports = kind({
