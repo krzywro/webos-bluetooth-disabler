@@ -1,0 +1,30 @@
+{
+    "name": "org.webosbrew.bluetooth-disabler",
+    "version": "1.0.0",
+    "main": "frontend/index.js",
+    "moduleDir": "frontend",
+    "scripts": {
+        "build": "enyo pack",
+        "package": "ares-package dist/ -e enyo-ilib",
+        "manifest": "tools/gen-manifest.js ${npm_package_name}.manifest.json",
+        "deploy": "ares-install ${npm_package_name}_${npm_package_version}_all.ipk",
+        "launch": "ares-launch ${npm_package_name}",
+        "version": "node tools/sync-version.js && git add appinfo.json",
+        "clean": "rm -rf dist/"
+    },
+    "assets": [
+        "appinfo.json",
+        "assets/**/*.*"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/krzywro/webos-bluetooth-disabler"
+    },
+    "styles": [],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "@webos-tools/cli": "^3.0.2",
+        "enyo-dev": "^1.0.0"
+    }
+}

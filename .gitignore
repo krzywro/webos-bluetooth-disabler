@@ -1,0 +1,4 @@
+node_modules
+.enyocache
+dist
+.DS_Store

@@ -1,0 +1,12 @@
+{
+    "id": "org.webosbrew.bluetooth-disabler",
+    "version": "1.0.0",
+    "vendor": "webosbrew.org",
+    "title": "Bluetooth Disabler",
+    "icon": "assets/icon80.png",
+    "largeIcon": "assets/icon130.png",
+    "main": "index.html",
+    "iconColor": "#ffffff",
+    "type": "web",
+    "appDescription": "Laugh in the face of the settings and disable Bluetooth anyway!"
+}
