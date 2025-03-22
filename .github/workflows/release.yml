@@ -19,10 +19,11 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v1
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
       with:
-        node-version: 14.x
+        node-version: 22
+        cache: 'npm'
 
     - run: npm ci
     - run: npm run build -- --production
