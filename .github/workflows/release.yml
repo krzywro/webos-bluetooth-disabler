@@ -31,35 +31,19 @@ jobs:
     - run: echo RELEASE_FILENAME_IPK=`ls *.ipk` >> $GITHUB_ENV
     - run: npm run manifest
 
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
+    - name: Get release
+      id: get_release
+      uses: bruceadams/get-release@74c3d60f5a28f358ccf241a00c9021ea16f0569f
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: true
+        GITHUB_TOKEN: ${{ github.token }}
 
-    - name: Upload IPK asset
-      id: upload-ipk-asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload IPK
+      uses: ncipollo/release-action@v1
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ${{github.workspace}}/${{env.RELEASE_FILENAME_IPK}}
-        asset_name: ${{env.RELEASE_FILENAME_IPK}}
-        asset_content_type: application/vnd.debian.binary-package
-
-    - name: Upload Manifest asset
-      id: upload-manifest-asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ${{github.workspace}}/org.webosbrew.custom-screensaver.manifest.json
-        asset_name: org.webosbrew.custom-screensaver.manifest.json
-        asset_content_type: application/json
+        name: Release ${{ steps.get_release.outputs.tag_name }}
+        allowUpdates: true
+        omitNameDuringUpdate: true
+        omitBodyDuringUpdate: true
+        omitDraftDuringUpdate: true
+        omitPrereleaseDuringUpdate: true
+        artifacts: '*.ipk,*.manifest.json'
